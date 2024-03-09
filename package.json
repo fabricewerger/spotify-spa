@@ -1,0 +1,15 @@
+{
+  "name": "spa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3",
+    "dotenv": "^16.4.4"
+  }
+}
