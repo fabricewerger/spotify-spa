@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+const api = require('./frontend/static/js/api')
+
 
 const app = express();
 
@@ -9,4 +11,6 @@ app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Server running..."));
+api.init()
+
+app.listen(process.env.PORT || 3000, () => console.log("LISAN AL GAIB"));
