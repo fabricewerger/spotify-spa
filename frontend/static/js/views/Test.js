@@ -9,9 +9,8 @@ export default class extends AbstractView {
   async getHtml() {
     return `
             <h1>Test</h1>
-            <p>
-                testpage
-            </p>
+            <p>testpage</p>
+            <a onclick="getAlbums()">Click this and open console</a>
         `
   }
 }
