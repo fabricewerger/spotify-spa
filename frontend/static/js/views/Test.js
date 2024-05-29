@@ -10,7 +10,10 @@ export default class extends AbstractView {
     return `
             <h1>Test</h1>
             <p>testpage</p>
-            <a onclick="getAlbums()">Click this and open console</a>
+            <a onclick="getAlbums()">Show favorite songs</a>
+
+            <h2>Top Tracks:</h2>
+                  <ul id="trackList"></ul>
         `
   }
 }

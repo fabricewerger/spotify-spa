@@ -1,5 +1,6 @@
 export async function getAlbums() {
-  // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization // fill in from https://developer.spotify.com/
+  // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+  // fill in from https://developer.spotify.com/
   const token = ''
   async function fetchWebApi(endpoint, method, body) {
     const res = await fetch(`https://api.spotify.com/${endpoint}`, {
@@ -19,11 +20,18 @@ export async function getAlbums() {
   }
 
   const topTracks = await getTopTracks()
-  console.log(
-    topTracks?.map(
-      ({ name, artists }) =>
-        `${name} by ${artists.map((artist) => artist.name).join(', ')}`,
-    ),
+  const trackList = topTracks?.map(
+    ({ name, artists }) =>
+      `${name} by ${artists.map((artist) => artist.name).join(', ')}`,
   )
+
+  const trackListContainer = document.getElementById('trackList')
+  trackListContainer.innerHTML = ''
+
+  trackList.forEach((track) => {
+    const listItem = document.createElement('li')
+    listItem.textContent = track
+    trackListContainer.appendChild(listItem)
+  })
 }
 window.getAlbums = getAlbums
