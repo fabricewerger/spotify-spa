@@ -21,20 +21,17 @@ const parentFunction = () => {
   resultElement.innerHTML = ''
   resultElement.appendChild(spinner)
 
-  getRandomNumber()
-    .then((res) => waitaMoment().then(() => res))
+  Promise.all([getRandomNumber(), waitaMoment()])
     .then((res) => {
       resultElement.innerHTML = ''
-      resultElement.innerText = `nice number: ${res}`
-      console.log('nice number:', res)
+      resultElement.innerText = `nice number: ${res[0]}`
+      console.log('nice number:', res[0])
     })
-    .catch((err) =>
-      waitaMoment().then(() => {
-        resultElement.innerHTML = ''
-        resultElement.innerText = 'bad number error!'
-        console.error('bad number:', err)
-      }),
-    )
+    .catch((rej) => {
+      resultElement.innerHTML = ''
+      resultElement.innerText = 'bad number error!'
+      console.error('bad number:', rej)
+    })
     .finally(() => {
       if (spinner.parentNode === resultElement) {
         resultElement.removeChild(spinner)
