@@ -5,24 +5,41 @@ function waitaMoment() {
 function getRandomNumber() {
   return new Promise((resolve, reject) => {
     const randomNumber = Math.floor(Math.random() * 10) + 1
-    const resultElement = document.getElementById('randomNumberResult')
-
-    resultElement.innerText = 'Loading...'
 
     if (randomNumber > 5) {
-      waitaMoment().then(() => {
-        resultElement.innerText = `nice number: ${randomNumber}`
-        console.log('nice number:', randomNumber)
-        resolve(randomNumber)
-      })
+      resolve(randomNumber)
     } else {
-      waitaMoment().then(() => {
-        resultElement.innerText = `bad number error!`
-
-        reject(randomNumber)
-      })
+      reject(randomNumber)
     }
   })
 }
 
-window.getRandomNumber = getRandomNumber
+const parentFunction = () => {
+  const resultElement = document.getElementById('randomNumberResult')
+  const spinner = document.createElement('div')
+  spinner.className = 'spinner'
+  resultElement.innerHTML = ''
+  resultElement.appendChild(spinner)
+
+  getRandomNumber()
+    .then((res) => waitaMoment().then(() => res))
+    .then((res) => {
+      resultElement.innerHTML = ''
+      resultElement.innerText = `nice number: ${res}`
+      console.log('nice number:', res)
+    })
+    .catch((err) =>
+      waitaMoment().then(() => {
+        resultElement.innerHTML = ''
+        resultElement.innerText = 'bad number error!'
+        console.error('bad number:', err)
+      }),
+    )
+    .finally(() => {
+      if (spinner.parentNode === resultElement) {
+        resultElement.removeChild(spinner)
+      }
+    })
+}
+
+window.getRandomNumber = parentFunction

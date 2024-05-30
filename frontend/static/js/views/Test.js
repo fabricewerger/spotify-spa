@@ -15,7 +15,8 @@ export default class extends AbstractView {
       <a onclick="getRandomNumber()">random nummer promise</a>
       <br>
       <h2>Random Number Result:</h2>
-      <div id="randomNumberResult">Click the link to get a random number</div>
+      <div id="randomNumberResult">Click to get random number</div>
+
 
 
       <h2>Top Tracks:</h2>
