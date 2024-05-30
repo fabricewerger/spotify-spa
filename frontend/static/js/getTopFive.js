@@ -1,7 +1,8 @@
-export async function getAlbums() {
+export async function getTopFive() {
   // Authorization token that must have been created previously. See: https://developer.spotify.com/documentation/web-api/concepts/authorization
   // fill in from https://developer.spotify.com/
-  const token = ''
+  const token =
+    'BQD6tX8uS9UMtdA7BhjTLStyCHQVWdm258UBDVYHwJVqe2cAO7kcX9Jz3ckYVymzsAW86UpaWjoeloHMBRaV0FKvPcFou7OKmF1migYdRG19e6U5CSpZhYc2y9SvAWEkrQHmWdJP6odo5nwp8G4uxvNpiyv9qVZQVW_14OIH6C6lcyHNXHluSshDf8hv7fjK06yyoiH5ZRukx2OwoAEgjge0WgtBKd4YOS4UqdnMjT9yRg2UgO4Vbx7H2RMEIJQxWo80Vmft'
 
   async function fetchWebApi(endpoint, method, body) {
     try {
@@ -46,11 +47,11 @@ export async function getAlbums() {
       trackListContainer.appendChild(listItem)
     })
   } catch (error) {
-    console.error('Error in getAlbums:', error)
+    console.error('Error in getTopFive:', error)
     const trackListContainer = document.getElementById('trackList')
     trackListContainer.innerHTML =
       '<li>Failed to load top tracks. Please try again later.</li>'
   }
 }
 
-window.getAlbums = getAlbums
+window.getTopFive = getTopFive
