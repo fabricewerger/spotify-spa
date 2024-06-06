@@ -35,6 +35,7 @@ body {
 .nav__link:hover {
   background: #222;
   border-radius: 12px;
+  text-decoration: none;
 }
 
 #app {
@@ -47,6 +48,35 @@ a {
   color: #1db954;
 }
 
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 li {
   font-size: 12px;
+}
+
+#trackList {
+  display: flex;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.spinner {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border-left-color: #1db954;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
