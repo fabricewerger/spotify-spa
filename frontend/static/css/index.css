@@ -57,6 +57,12 @@ li {
   font-size: 12px;
 }
 
+#trackList {
+  display: flex;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
 .spinner {
   border: 2px solid rgba(0, 0, 0, 0.1);
   width: 18px;
