@@ -1,3 +1,23 @@
+:root {
+  --primary-color: #1db954;
+  --primary-white: #fff;
+  --primary-black: #191414;
+  --secondary-color: #400072;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
+
+[data-theme='dark'] {
+  --primary-color: #400072;
+  --primary-white: #fff;
+  --primary-black: #191414;
+  --secondary-color: #1db954;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
+}
+
 body {
   --nav-width: 200px;
   margin: 0 var(--nav-width);
@@ -45,7 +65,7 @@ body {
 }
 
 a {
-  color: #1db954;
+  color: var(--primary-color);
 }
 
 a:hover {
@@ -68,7 +88,7 @@ li {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border-left-color: #1db954;
+  border-left-color: var(--primary-color);
   animation: spin 1s ease infinite;
 }
 
