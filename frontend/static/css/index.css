@@ -14,12 +14,13 @@
   --primary-black: #191414;
   --secondary-color: #1db954;
   --font-color: #e1e1ff;
-  --bg-color: #161625;
+  --bg-color: #121212;
+  --bg-color--light: #151515;
   --heading-color: #818cab;
 }
 
 body {
-  --nav-width: 200px;
+  --nav-width: 100px;
   margin: 0 var(--nav-width);
   font-family: 'inter', sans-serif;
   font-size: 18px;
@@ -79,8 +80,74 @@ li {
 
 #trackList {
   display: flex;
-  list-style: none;
-  padding-inline-start: 0;
+  list-style-type: none;
+  padding: 0;
+  gap: 12px;
+  overflow: scroll;
+}
+
+.track-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.track-item:hover {
+  background-color: #f0f0f0;
+}
+
+.track-item-info {
+  width: 100%;
+}
+
+.track-item-info-title {
+  font-size: 1rem;
+}
+
+.track-item-info-popularity .track-item-info-artist {
+  font-size: 0.8rem;
+  color: #111;
+}
+
+.track-item-image {
+  width: 340px !important;
+  border-radius: 6px;
+}
+
+genre-alternative-rock {
+  transition: background-color 0.3s ease;
+}
+
+.genre-alternative-rock:hover {
+  background-color: #ff6f61;
+}
+
+.genre-ambient-folk {
+  transition: background-color 0.3s ease;
+}
+
+.genre-ambient-folk:hover {
+  background-color: #ff9a8b;
+}
+
+.genre-modern-rock {
+  transition: background-color 0.3s ease;
+}
+
+.genre-modern-rock:hover {
+  background-color: #ffb6c1;
+}
+
+.genre-electro-house {
+  transition: background-color 0.3s ease;
+}
+
+.genre-electro-house:hover {
+  background-color: #6495ed;
 }
 
 .spinner {
